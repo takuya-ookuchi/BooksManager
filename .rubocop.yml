@@ -16,19 +16,13 @@ require:
 
 ## 全体に適応する項目を定義します。ここで Exclude に設定したファイルは、チェック対象外になります。
 AllCops:
-  TargetRubyVersion: 2.6
   TargetRailsVersion: 5.2
   Exclude:
     - "vendor/**/*"
     - "bin/**/*"
     - "db/**/*"
     - "tmp/**/*"
-    - "node_modules/**/*"
-    - "lib/tasks/auto_annotate_models.rake"
     - "config/**/*"
-    - "script/**/*"
-    - "bin/{rails,rake}"
-    - !ruby/regexp /old_and_unused\.rb$/
     - "Gemfile"
     - "Rakefile"
     - "test/**/*"
@@ -87,9 +81,6 @@ Metrics/BlockLength:
   Exclude:
     - "Guardfile"
     - "config/routes.rb"
-    - "spec/**/*"
-    - "app/views/**/*.jbuilder"
-    - "lib/tasks/dev.rake"
 
 Metrics/ClassLength:
   CountComments: false
@@ -102,11 +93,6 @@ Metrics/MethodLength:
 
 Metrics/ModuleLength:
   CountComments: false
-
-Naming/FileName:
-  Exclude:
-    - "Gemfile"
-    - "Guardfile"
 
 Naming/MethodParameterName:
   AllowedNames: [e]
