@@ -1,2 +1,3 @@
-h1 Books#new
-p Find me in app/views/books/new.html.slim
+h1 書籍の新規登録
+
+= render partial: 'shared/form', locals: { book: @book }
