@@ -3,8 +3,4 @@
 
   h1 書籍の新規登録
 
-  = form_with model: @book, local: true do |f|
-    .mb-3
-      = f.label :title
-      = f.text_field :title, class: 'form-control', id: 'title'
-    = f.submit nil, class: 'btn btn-primary'
+  = render partial: 'form', locals: { book: @book }
