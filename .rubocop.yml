@@ -30,11 +30,6 @@ AllCops:
 Rails:
   Enabled: true
 
-Rails/FilePath:
-  Exclude:
-    - "lib/tasks/dev.rake"
-    - "spec/rails_helper.rb"
-
 ## `and return` の形式を利用できるようにします。基本的には、&& と || を使います。
 Style/AndOr:
   Enabled: false
@@ -72,14 +67,9 @@ Lint/StructNewOverride:
 Layout/LineLength:
   Max: 150
 
-Metrics/AbcSize:
-  Exclude:
-    - "lib/tasks/dev.rake"
-
 Metrics/BlockLength:
   CountComments: false
   Exclude:
-    - "Guardfile"
     - "config/routes.rb"
 
 Metrics/ClassLength:
@@ -88,8 +78,6 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   CountComments: false
   Max: 15
-  Exclude:
-    - "lib/tasks/dev.rake"
 
 Metrics/ModuleLength:
   CountComments: false
@@ -97,15 +85,10 @@ Metrics/ModuleLength:
 Naming/MethodParameterName:
   AllowedNames: [e]
 
-Style/BlockComments:
-  Exclude:
-    - "spec/spec_helper.rb"
-
 # https://rubocop.readthedocs.io/en/stable/cops_style/#styleblockdelimiters
 Style/BlockDelimiters:
   EnforcedStyle: braces_for_chaining
   Exclude:
-    - "spec/**/*"
 
 Style/ClassAndModuleChildren:
   Enabled: false
