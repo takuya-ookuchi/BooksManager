@@ -69,8 +69,6 @@ Layout/LineLength:
 
 Metrics/BlockLength:
   CountComments: false
-  Exclude:
-    - "config/routes.rb"
 
 Metrics/ClassLength:
   CountComments: false
@@ -88,7 +86,6 @@ Naming/MethodParameterName:
 # https://rubocop.readthedocs.io/en/stable/cops_style/#styleblockdelimiters
 Style/BlockDelimiters:
   EnforcedStyle: braces_for_chaining
-  Exclude:
 
 Style/ClassAndModuleChildren:
   Enabled: false
