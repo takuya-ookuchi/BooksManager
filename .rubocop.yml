@@ -25,6 +25,7 @@ AllCops:
     - "Gemfile"
     - "Rakefile"
     - "test/**/*"
+    - "config.ru"
 
 Rails:
   Enabled: true
