@@ -1,3 +1,4 @@
 h1= @book.title
 
 = link_to '編集', edit_book_path, class: 'btn btn-primary me-3'
+= link_to '削除', @book, method: :delete, date: { confirm: "書籍「#{@book.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
