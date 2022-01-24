@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show]
+  before_action :set_book, only: %i[show edit update]
 
   def index
     @books = Book.all
@@ -23,7 +23,10 @@ class BooksController < ApplicationController
 
   def destroy; end
 
-  def update; end
+  def update
+    @book.update!(book_params)
+    redirect_to books_url, notice: "書籍「#{@book.title}」を更新しました。"
+  end
 
   private
 
