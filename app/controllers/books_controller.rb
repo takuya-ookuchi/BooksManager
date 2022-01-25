@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   def index
     @q = Book.ransack(params[:q])
-    @books = @q.result
+    @books = @q.result.order(:title)
   end
 
   def show; end
