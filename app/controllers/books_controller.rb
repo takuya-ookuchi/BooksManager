@@ -20,7 +20,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to @book, notice: "書籍「#{book.title}」を登録しました。"
+      redirect_to @book, notice: "書籍「#{@book.title}」を登録しました。"
     else
       render :new
     end
