@@ -17,9 +17,13 @@ class BooksController < ApplicationController
   def edit; end
 
   def create
-    book = Book.new(book_params)
-    book.save!
-    redirect_to books_url, notice: "書籍「#{book.title}」を登録しました。"
+    @book = Book.new(book_params)
+
+    if @book.save
+      redirect_to @book, notice: "書籍「#{book.title}」を登録しました。"
+    else
+      render :new
+    end
   end
 
   def destroy
