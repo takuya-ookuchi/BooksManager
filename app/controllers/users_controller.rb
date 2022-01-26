@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update!(user_params)
-    redirect_to users_url, notice: "「#{@user.name}」の登録を更新しました。"
+    redirect_to users_url, notice: "「#{@user.name}」の登録情報を更新しました。"
   end
 
   private
