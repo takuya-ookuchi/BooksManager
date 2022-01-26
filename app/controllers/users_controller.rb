@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  def index; end
+  def index
+    @users = User.all
+  end
 
   def show; end
 
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     user.save!
-    redirect_to user_url, notice: "「#{user.name}」を登録しました。"
+    redirect_to users_url, notice: "「#{user.name}」を登録しました。"
   end
 
   def destroy; end
