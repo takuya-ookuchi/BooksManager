@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show]
+  before_action :set_user, only: %i[show edit update]
   def index
     @users = User.all
   end
@@ -22,7 +22,10 @@ class UsersController < ApplicationController
 
   def destroy; end
 
-  def update; end
+  def update
+    @user.update!(user_params)
+    redirect_to users_url, notice: "「#{@user.name}」の登録情報を更新しました。"
+  end
 
   private
 

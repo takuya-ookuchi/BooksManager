@@ -33,7 +33,7 @@ class BooksController < ApplicationController
 
   def update
     @book.update!(book_params)
-    redirect_to books_url, notice: "書籍「#{@book.title}」を更新しました。"
+    redirect_to books_url, notice: "書籍「#{@book.title}」の登録情報を更新しました。"
   end
 
   private
