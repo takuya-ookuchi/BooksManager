@@ -15,9 +15,13 @@ class UsersController < ApplicationController
   def edit; end
 
   def create
-    user = User.new(user_params)
-    user.save!
-    redirect_to users_url, notice: "「#{user.name}」を登録しました。"
+    @user = User.new(user_params)
+
+    if @user.save
+      redirect_to users_url, notice: "「#{@user.name}」を登録しました。"
+    else
+      render :new
+    end
   end
 
   def destroy
