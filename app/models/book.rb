@@ -5,4 +5,6 @@ class Book < ApplicationRecord
   # 同じ本が２冊以上ある場合、１冊づつ別々で登録するためユニーク制約は設定しない
   validates :title, presence: true
   validates :title, length: { maximum: 30 }
+
+  has_many :rentals
 end
