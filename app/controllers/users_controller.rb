@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   def index
-    @users = User.all
+    @users = User.all.order(:furigana)
   end
 
   def show; end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :furigana)
   end
 
   def set_user
