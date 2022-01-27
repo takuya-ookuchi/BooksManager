@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates :name, length: { maximum: 30 }
   validates :furigana, presence: true
   validates :furigana, length: { maximum: 30 }
+
+  has_meny :rentals
 end
