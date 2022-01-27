@@ -17,6 +17,7 @@ ja:
       user:
         id: ID
         name: 名前
+        furigana: フリガナ
   date:
     abbr_day_names:
       - 日
