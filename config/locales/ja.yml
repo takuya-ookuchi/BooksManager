@@ -10,6 +10,7 @@ ja:
     models:
       book: 書籍
       user: 社員
+      rental: 貸し出し
     attributes:
       book:
         id: ID
@@ -18,6 +19,10 @@ ja:
         id: ID
         name: 名前
         furigana: フリガナ
+      rental:
+        id: ID
+        created_at: 貸し出し日
+        updated_at: 返却日
   date:
     abbr_day_names:
       - 日
