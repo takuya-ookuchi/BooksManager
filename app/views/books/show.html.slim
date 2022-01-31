@@ -19,4 +19,4 @@ table.table.table-hover
     - @book.rentals.each do |rental|
       tr
         td= link_to rental.user.name, user_path
-        td= rental.created_at.to_s(:datetime_jp)
+        td= I18n.l(rental.created_at)
