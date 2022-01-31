@@ -22,7 +22,6 @@ ja:
       rental:
         id: ID
         created_at: 貸し出し日
-        updated_at: 返却日
   date:
     abbr_day_names:
       - 日

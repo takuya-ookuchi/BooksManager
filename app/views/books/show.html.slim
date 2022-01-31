@@ -14,7 +14,6 @@ table.table.table-hover
     tr
       th= User.human_attribute_name(:name)
       th= Rental.human_attribute_name(:created_at)
-      th= Rental.human_attribute_name(:updated_at)
   tbody
     - @book.rentals.each do |rental|
       tr
