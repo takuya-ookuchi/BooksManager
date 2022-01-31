@@ -6,5 +6,5 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :title, length: { maximum: 30 }
 
-  has_many :rentals
+  has_many :rentals, dependent: :nullify
 end
