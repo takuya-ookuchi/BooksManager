@@ -1,4 +1,8 @@
 h1= @book.title
 
+= form_with url: rentals_path(book_id: @book.id), method: :post do |f|
+  = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '選択してください'}, {class: 'form-control input-sm mb-3'})
+  = f.submit '借りる', class: 'btn btn-primary mb-3'
+
 = link_to '編集', edit_book_path, class: 'btn btn-primary me-3'
 = link_to '削除', @book, method: :delete, data: { confirm: "書籍「#{@book.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
