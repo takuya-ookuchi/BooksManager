@@ -22,7 +22,6 @@ ja:
       rental:
         id: ID
         created_at: 貸し出し日
-        updated_at: 返却日
   date:
     abbr_day_names:
       - 日
@@ -217,7 +216,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a)"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
