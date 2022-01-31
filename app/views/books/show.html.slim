@@ -20,5 +20,3 @@ table.table.table-hover
       tr
         td= link_to rental.user.name, user_path
         td= rental.created_at.to_s(:datetime_jp)
-        - if rental.changed?
-          td= rental.updated_at.to_s(:datetime_jp)
