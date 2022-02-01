@@ -13,7 +13,7 @@ class RentalsController < ApplicationController
     @book = Book.find(params[:book_id])
     @rental = Rental.new(rental_params)
     @rental.save!
-    redirect_to books_url, notice: "書籍「#{@book.title}」をレンタルしました。"
+    redirect_to @book, notice: "書籍「#{@book.title}」をレンタルしました。"
   end
 
   def update
