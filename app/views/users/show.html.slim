@@ -2,3 +2,16 @@ h1= @user.name
 
 = link_to '編集', edit_user_path, class: 'btn btn-primary me-3'
 = link_to '削除', @user, method: :delete, data: { confirm: "「#{@user.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
+
+h2.mt-3 貸し出し履歴
+
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Book.human_attribute_name(:title)
+      th= Rental.human_attribute_name(:created_at)
+  tbody
+    - @user.rentals.each do |rental|
+      tr
+        td= link_to rental.book.title, book_path
+        td= I18n.l(rental.created_at)
