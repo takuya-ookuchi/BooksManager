@@ -16,7 +16,12 @@ class RentalsController < ApplicationController
     redirect_to books_url, notice: "書籍「#{@book.title}」をレンタルしました。"
   end
 
-  def update; end
+  def update
+    @book = Book.find(params[:book_id])
+    @rental = Rental.find_by(book_id: params[:book_id], returned_at: nil)
+    @rental.update!(returned_at: Time.current)
+    redirect_to @book, notice: "書籍「#{@book.title}」を返却しました。"
+  end
 
   private
 
