@@ -16,7 +16,7 @@ table.table.table-hover
       tr
         td= link_to rental.book.title, book_path
         td= I18n.l(rental.created_at)
-        - if rental.returned_at == nil
+        - if rental.book_is_lent_out
           td= '貸し出し中'
         -else
           td= I18n.l(rental.returned_at)
