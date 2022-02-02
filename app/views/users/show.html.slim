@@ -10,8 +10,13 @@ table.table.table-hover
     tr
       th= Book.human_attribute_name(:title)
       th= Rental.human_attribute_name(:created_at)
+      th= Rental.human_attribute_name(:returned_at)
   tbody
     - @user.rentals.each do |rental|
       tr
         td= link_to rental.book.title, book_path
         td= I18n.l(rental.created_at)
+        - if rental.going?
+          td= '貸し出し中'
+        -else
+          td= I18n.l(rental.returned_at)

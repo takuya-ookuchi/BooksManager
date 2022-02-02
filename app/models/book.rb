@@ -7,4 +7,8 @@ class Book < ApplicationRecord
   validates :title, length: { maximum: 30 }
 
   has_many :rentals, dependent: :nullify
+
+  def rentable?
+    rentals.empty? || !rentals.last.returned_at.nil?
+  end
 end
