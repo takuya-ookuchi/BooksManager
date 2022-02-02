@@ -8,7 +8,7 @@ class Book < ApplicationRecord
 
   has_many :rentals, dependent: :nullify
 
-  def lent_out
-    rentals.last.returned_at.nil?
+  def rentable?
+    rentals.empty? || !rentals.last.returned_at.nil?
   end
 end
