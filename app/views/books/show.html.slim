@@ -25,7 +25,7 @@ table.table.table-hover
       tr
         td= link_to rental.user.name, user_path
         td= I18n.l(rental.created_at)
-        - if rental.book_is_lent_out
+        - if rental.going?
           td= '貸し出し中'
         -else
           td= I18n.l(rental.returned_at)

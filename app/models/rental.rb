@@ -4,7 +4,7 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
-  def book_is_lent_out
+  def going?
     returned_at.nil?
   end
 end
