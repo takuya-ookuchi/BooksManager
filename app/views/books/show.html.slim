@@ -1,6 +1,6 @@
 h1= @book.title
 
-- if @book.rentals == nil
+- if @book.rentals.empty?
   = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
     = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control input-sm mb-3'})
     = f.submit '借りる', class: 'btn btn-primary mb-3'
