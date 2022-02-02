@@ -5,7 +5,7 @@ h1= @book.title
     = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control input-sm mb-3'})
     = f.submit '借りる', class: 'btn btn-primary mb-3'
 - else
-  - if @book.rentals.last.returned_at == nil
+  - if @book.lent_out
     = form_with url: rental_path(book_id: @book.id), method: :patch do |f|
       = f.submit '返す', class: 'btn btn-success mb-3'
   - else
