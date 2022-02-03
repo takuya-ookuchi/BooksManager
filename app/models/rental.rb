@@ -18,6 +18,6 @@ class Rental < ApplicationRecord
   end
 
   def validate_not_returnable_on_rental_not_going
-    errors.add(book.title, 'をまだ借りていません。') unless @rental&.returned_at.nil?
+    errors.add(book.title, 'をまだ借りていません。') if @rental&.returned_at
   end
 end
