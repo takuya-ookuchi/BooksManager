@@ -13,6 +13,6 @@ class Rental < ApplicationRecord
   private
 
   def not_rentable_as_rental_going
-    errors.add(book.title, 'は貸出中です。借りることはできません。') if book.checked_out
+    errors.add(book.title, 'は貸出中です。借りることはできません。') if book.going_rental
   end
 end
