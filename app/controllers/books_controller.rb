@@ -8,7 +8,9 @@ class BooksController < ApplicationController
     @books = @q.result.order(:title)
   end
 
-  def show; end
+  def show
+    @rentals = @book.rentals.order(created_at: :desc)
+  end
 
   def new
     @book = Book.new
