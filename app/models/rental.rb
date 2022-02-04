@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Rental < ApplicationRecord
-  validate :validate_not_rentable_on_rental_going
+  validate :validate_not_rentable_on_rental_going, on: :create
   validate :validate_not_returnable_before_rental
 
   belongs_to :user
@@ -14,7 +14,7 @@ class Rental < ApplicationRecord
   private
 
   def validate_not_rentable_on_rental_going
-    errors.add(book.title, 'は貸出中です。借りることはできません。') if @rental&.going?
+    errors.add(book.title, 'は貸出中です。借りることはできません。') if book.renting?
   end
 
   def validate_not_returnable_before_rental

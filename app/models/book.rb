@@ -11,4 +11,8 @@ class Book < ApplicationRecord
   def rentable?
     rentals.empty? || !rentals.last.returned_at.nil?
   end
+
+  def renting?
+    rentals.find_by(returned_at: nil)
+  end
 end
