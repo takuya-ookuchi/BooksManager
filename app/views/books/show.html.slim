@@ -26,7 +26,7 @@ table.table.table-hover
       th= Rental.human_attribute_name(:created_at)
       th= Rental.human_attribute_name(:returned_at)
   tbody
-    - @book.rentals.each do |rental|
+    - @book.rentals.order(created_at: :desc).each do |rental|
       tr
         td= link_to rental.user.name, user_path(rental.user)
         td= I18n.l(rental.created_at)
