@@ -6,7 +6,9 @@ class UsersController < ApplicationController
     @users = User.all.order(:furigana)
   end
 
-  def show; end
+  def show
+    @rentals = @user.rentals.order(created_at: :desc)
+  end
 
   def new
     @user = User.new
