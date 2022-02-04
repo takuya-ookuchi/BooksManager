@@ -22,9 +22,13 @@ class RentalsController < ApplicationController
 
   def update
     @book = Book.find(params[:book_id])
-    @rental = Rental.find_by!(book_id: params[:book_id], returned_at: nil)
-    @rental.update!(returned_at: Time.current)
-    redirect_to @book, notice: "書籍「#{@book.title}」を返却しました。"
+    @rental = Rental.find_by(book_id: params[:book_id], returned_at: nil)
+
+    if @rental&.update(returned_at: Time.current)
+      redirect_to @book, notice: "書籍「#{@book.title}」を返却しました。" and return
+    else
+      redirect_to @book, alert: "書籍「#{@book.title}」をまだレンタルしていないので返却できません"
+    end
   end
 
   private
