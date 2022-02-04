@@ -14,7 +14,7 @@ table.table.table-hover
   tbody
     - @user.rentals.order(created_at: :desc).each do |rental|
       tr
-        td= link_to rental.book.title, book_path
+        td= link_to rental.book.title, book_path(rental.book)
         td= I18n.l(rental.created_at)
         - if rental.going?
           td= '貸し出し中'
