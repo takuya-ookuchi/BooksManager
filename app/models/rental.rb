@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Rental < ApplicationRecord
-  validate :validate_not_rentable_on_rental_going, on: :create
+  validate :not_rentable_as_rental_going, on: :create
 
   belongs_to :user
   belongs_to :book
@@ -12,7 +12,7 @@ class Rental < ApplicationRecord
 
   private
 
-  def validate_not_rentable_on_rental_going
+  def not_rentable_as_rental_going
     errors.add(book.title, 'は貸出中です。借りることはできません。') if book.checked_out
   end
 end
