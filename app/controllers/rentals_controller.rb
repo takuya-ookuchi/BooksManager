@@ -26,9 +26,10 @@ class RentalsController < ApplicationController
 
     if @rental
       @rental.update(returned_at: Time.current)
-      redirect_to @book, notice: "書籍「#{@book.title}」を返却しました。" and return
+      redirect_to @book, notice: "書籍「#{@book.title}」を返却しました。"
+    else
+      redirect_to @book, alert: "書籍「#{@book.title}」をまだレンタルしていないので返却できません"
     end
-    redirect_to @book, alert: "書籍「#{@book.title}」をまだレンタルしていないので返却できません"
   end
 
   private
