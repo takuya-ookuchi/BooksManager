@@ -12,15 +12,24 @@ class RentalsController < ApplicationController
   def create
     @book = Book.find(params[:book_id])
     @rental = Rental.new(rental_params)
-    @rental.save!
-    redirect_to @book, notice: "書籍「#{@book.title}」をレンタルしました。"
+
+    if @rental.save
+      redirect_to @book, notice: "書籍「#{@book.title}」をレンタルしました。"
+    else
+      render template: 'books/show'
+    end
   end
 
   def update
     @book = Book.find(params[:book_id])
-    @rental = Rental.find_by!(book_id: params[:book_id], returned_at: nil)
-    @rental.update!(returned_at: Time.current)
-    redirect_to @book, notice: "書籍「#{@book.title}」を返却しました。"
+    @rental = @book.going_rental
+
+    if @rental
+      @rental.update(returned_at: Time.current)
+      redirect_to @book, notice: "書籍「#{@book.title}」を返却しました。"
+    else
+      redirect_to @book, alert: "書籍「#{@book.title}」をまだレンタルしていないので返却できません"
+    end
   end
 
   private

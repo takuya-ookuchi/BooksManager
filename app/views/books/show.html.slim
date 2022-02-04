@@ -1,6 +1,11 @@
 h1= @book.title
 
-- if @book.rentable?
+- if @rental&.errors.present?
+  ul#error_explanation
+    - @rental.errors.full_messages.each do |message|
+      li= message
+
+- unless @book.going_rental
   = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
     = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control input-sm mb-3'})
     = f.submit '借りる', class: 'btn btn-primary mb-3'
@@ -9,7 +14,7 @@ h1= @book.title
     = f.submit '返す', class: 'btn btn-success mb-3'
 
 
-= link_to '編集', edit_book_path, class: 'btn btn-primary me-3'
+= link_to '編集', edit_book_path(@book), class: 'btn btn-primary me-3'
 = link_to '削除', @book, method: :delete, data: { confirm: "書籍「#{@book.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
 
 h2.mt-3 貸し出し履歴
@@ -23,7 +28,7 @@ table.table.table-hover
   tbody
     - @book.rentals.each do |rental|
       tr
-        td= link_to rental.user.name, user_path
+        td= link_to rental.user.name, user_path(rental.user)
         td= I18n.l(rental.created_at)
         - if rental.going?
           td= '貸し出し中'
