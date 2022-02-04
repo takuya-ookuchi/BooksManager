@@ -8,7 +8,7 @@ class Book < ApplicationRecord
 
   has_many :rentals, dependent: :nullify
 
-  def checked_out
+  def going_rental
     rentals.where(returned_at: nil).first
   end
 end

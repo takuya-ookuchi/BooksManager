@@ -22,7 +22,7 @@ class RentalsController < ApplicationController
 
   def update
     @book = Book.find(params[:book_id])
-    @rental = @book.checked_out
+    @rental = @book.going_rental
 
     if @rental
       @rental.update(returned_at: Time.current)
