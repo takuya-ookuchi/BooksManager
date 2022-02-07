@@ -1,7 +1,5 @@
 h1 書籍一覧
 
-= link_to '新規登録', new_book_path, class: 'btn btn-primary mb-3'
-
 = search_form_for @q, class: 'mb-5' do |f|
   .mb-3.row
     = f.label :title_cont, 'タイトル', class: 'col-sm-2 col-form-label'
