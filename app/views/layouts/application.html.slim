@@ -9,12 +9,23 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand Booksmanager
-    .container
+    .app-title.navbar.navbar-expand-sm.navbar-dark.bg-dark.mb-5
+      .container.px-4
+        .navbar-brand Booksmanager
+        .collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-sm-0
+            li.nav-item
+              = link_to '書籍一覧', books_path, class: 'nav-link'
+            li.nav-item
+              = link_to '書籍登録', new_book_path, class: 'nav-link'
+            li.nav-item
+              = link_to '社員一覧', users_path, class: 'nav-link'
+            li.nav-item
+              = link_to '社員登録', new_user_path, class: 'nav-link'
+
+    .container.px-4
       -if flash.notice.present?
         .alert.alert-success= flash.notice
       - if flash.alert.present?
         .alert.alert-danger= flash.alert
-      = render partial: 'shared/navbar'
       = yield
