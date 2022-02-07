@@ -7,4 +7,8 @@ class User < ApplicationRecord
   validates :furigana, length: { maximum: 30 }
 
   has_many :rentals, dependent: :nullify
+
+  def renting_book
+    rentals.where(returned_at: nil).last&.book
+  end
 end

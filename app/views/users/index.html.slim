@@ -6,7 +6,10 @@ table.table.table-hover
   thead.thead-default
     tr
       th= User.human_attribute_name(:name)
+      th= '借りている書籍'
   tbody
     - @users.each do |user|
       tr
         td= link_to user.name, user
+        - if user.renting_book
+          td= link_to user.renting_book.title, book_path(user.renting_book)
