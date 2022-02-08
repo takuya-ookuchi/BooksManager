@@ -12,10 +12,10 @@ h1.float-start = @book.title
       .col-6
         = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control form-control-lg input-sm mb-3'})
       .col-1
-        = f.submit '借りる', class: 'btn btn-primary mb-3'
+        = f.submit '借りる', class: 'btn btn-primary btn-lg mb-3'
 - else
   = form_with url: rental_path(book_id: @book.id), method: :patch do |f|
-    = f.submit '返す', class: 'btn btn-success mb-3'
+    = f.submit '返す', class: 'btn btn-success btn-lg mb-3'
 
 h2.mt-3 貸し出し履歴
 
