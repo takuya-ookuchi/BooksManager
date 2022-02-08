@@ -1,12 +1,13 @@
 h1 書籍一覧
 
+
 = search_form_for @q, class: 'mb-5' do |f|
-  .mb-3.row
-    = f.label :title_cont, 'タイトル', class: 'col-sm-2 col-form-label'
-    .col-sm10
+  = f.label :title_cont, 'タイトル', class: 'col-sm-2 col-form-label'
+  .row
+    .col-6
       = f.search_field :title_cont, class: 'form-control'
-  .mb-3
-    = f.submit class: 'btn btn-primary'
+    .col-1
+      = f.submit class: 'btn btn-primary'
 
 table.table.table-hover
   thead.thead-default
