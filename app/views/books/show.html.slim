@@ -8,8 +8,11 @@ h1.float-start = @book.title
 
 - unless @book.going_rental
   = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
-    = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control input-sm mb-3'})
-    = f.submit '借りる', class: 'btn btn-primary mb-3'
+    .row
+      .col-6
+        = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control form-control-lg input-sm mb-3'})
+      .col-1
+        = f.submit '借りる', class: 'btn btn-primary mb-3'
 - else
   = form_with url: rental_path(book_id: @book.id), method: :patch do |f|
     = f.submit '返す', class: 'btn btn-success mb-3'
