@@ -1,7 +1,6 @@
-h1= @user.name
+h1.float-start = @user.name
+= link_to '編集', edit_user_path(@user), class: 'btn btn-link btn-lg ms-4'
 
-= link_to '編集', edit_user_path, class: 'btn btn-primary me-3'
-= link_to '削除', @user, method: :delete, data: { confirm: "「#{@user.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
 
 h2.mt-3 貸し出し履歴
 
@@ -20,3 +19,5 @@ table.table.table-hover
           td= '貸し出し中'
         -else
           td= I18n.l(rental.returned_at)
+
+= link_to 'この社員を削除する', @user, method: :delete, data: { confirm: "「#{@user.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger btn-lg col-3 my-5'
