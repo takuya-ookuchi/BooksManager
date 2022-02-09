@@ -2,9 +2,6 @@
   h1.float-start = @book.title
   = link_to '編集', edit_book_path(@book), class: 'btn btn-link btn-lg ms-4'
 
-- if flash.alert.present?
-  .alert.alert-danger= flash.alert
-
 - if @rental&.errors.present?
   ul#error_explanation.alert.alert-danger [style="list-style: none;"]
     - @rental.errors.full_messages.each do |message|
