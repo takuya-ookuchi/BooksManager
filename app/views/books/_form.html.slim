@@ -1,7 +1,7 @@
 - if book.errors.present?
-  #error_explanation.alert.alert-danger
+  ul#error_explanation.alert.alert-danger [style=" list-style: none;"]
     - book.errors.full_messages.each do |message|
-      = message
+      li= message
 
 = form_with model: book, local: true do |f|
     .mb-3

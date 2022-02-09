@@ -1,7 +1,7 @@
 - if user.errors.present?
-  #error_explanation.alert.alert-danger
+  ul#error_explanation.alert.alert-danger [style=" list-style: none;"]
     - user.errors.full_messages.each do |message|
-      div= message
+      li= message
 
 = form_with model: user, local: true do |f|
     .mb-3
