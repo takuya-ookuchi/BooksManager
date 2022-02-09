@@ -6,7 +6,7 @@
   .alert.alert-danger= flash.alert
 
 - if @rental&.errors.present?
-  ul#error_explanation.alert.alert-danger [style=" list-style: none;"]
+  ul#error_explanation.alert.alert-danger [style="list-style: none;"]
     - @rental.errors.full_messages.each do |message|
       li= message
 
