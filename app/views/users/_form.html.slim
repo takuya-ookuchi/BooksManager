@@ -1,5 +1,5 @@
 - if user.errors.present?
-  ul#error_explanation
+  ul#error_explanation.alert.alert-danger [style="list-style: none;"]
     - user.errors.full_messages.each do |message|
       li= message
 
