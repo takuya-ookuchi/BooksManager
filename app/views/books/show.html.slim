@@ -3,9 +3,9 @@
   = link_to '編集', edit_book_path(@book), class: 'btn btn-link btn-lg ms-4'
 
 - if @rental&.errors.present?
-  ul#error_explanation
+  #error_explanation.alert.alert-danger
     - @rental.errors.full_messages.each do |message|
-      li= message
+      .= message
 
 - unless @book.going_rental
   = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
