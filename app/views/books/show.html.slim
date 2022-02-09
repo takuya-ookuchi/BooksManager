@@ -1,40 +1,39 @@
-header.py-4
+.clearfix
   h1.float-start = @book.title
   = link_to '編集', edit_book_path(@book), class: 'btn btn-link btn-lg ms-4'
 
-body.mt-3
-  - if @rental&.errors.present?
-    ul#error_explanation
-      - @rental.errors.full_messages.each do |message|
-        li= message
+- if @rental&.errors.present?
+  ul#error_explanation
+    - @rental.errors.full_messages.each do |message|
+      li= message
 
-  - unless @book.going_rental
-    = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
-      .row
-        .col-6
-          = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control form-control-lg input-sm mb-3'})
-        .col-1
-          = f.submit '借りる', class: 'btn btn-primary btn-lg mb-3'
-  - else
-    = form_with url: rental_path(book_id: @book.id), method: :patch do |f|
-      = f.submit '返す', class: 'btn btn-success btn-lg mb-3'
+- unless @book.going_rental
+  = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
+    .row
+      .col-6
+        = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control form-control-lg input-sm mb-3'})
+      .col-1
+        = f.submit '借りる', class: 'btn btn-primary btn-lg mb-3'
+- else
+  = form_with url: rental_path(book_id: @book.id), method: :patch do |f|
+    = f.submit '返す', class: 'btn btn-success btn-lg mb-3'
 
-  h2.mt-3 貸し出し履歴
+h2.mt-3 貸し出し履歴
 
-  table.table.table-hover
-    thead.thead-default
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= User.human_attribute_name(:name)
+      th= Rental.human_attribute_name(:created_at)
+      th= Rental.human_attribute_name(:returned_at)
+  tbody
+    - @rentals.each do |rental|
       tr
-        th= User.human_attribute_name(:name)
-        th= Rental.human_attribute_name(:created_at)
-        th= Rental.human_attribute_name(:returned_at)
-    tbody
-      - @rentals.each do |rental|
-        tr
-          td= link_to rental.user.name, user_path(rental.user)
-          td= I18n.l(rental.created_at)
-          - if rental.going?
-            td= '貸し出し中'
-          -else
-            td= I18n.l(rental.returned_at)
+        td= link_to rental.user.name, user_path(rental.user)
+        td= I18n.l(rental.created_at)
+        - if rental.going?
+          td= '貸し出し中'
+        -else
+          td= I18n.l(rental.returned_at)
 
-  = link_to 'この書籍を削除する', @book, method: :delete, data: { confirm: "書籍「#{@book.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger btn-lg col-3 my-5'
+= link_to 'この書籍を削除する', @book, method: :delete, data: { confirm: "書籍「#{@book.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger btn-lg col-3 my-5'
