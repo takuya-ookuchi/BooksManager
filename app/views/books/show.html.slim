@@ -8,7 +8,7 @@
 - if @rental&.errors.present?
   #error_explanation.alert.alert-danger
     - @rental.errors.full_messages.each do |message|
-      .= message
+      = message
 
 - unless @book.going_rental
   = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
