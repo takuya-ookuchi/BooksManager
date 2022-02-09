@@ -1,11 +1,11 @@
 h1 書籍一覧
 
 
-= search_form_for @q, class: 'mb-5' do |f|
-  = f.label :title_cont, 'タイトル', class: 'col-sm-2 col-form-label'
+= search_form_for @q, class: 'mb-3' do |f|
+  = f.label :title_cont, '書籍検索', class: 'col-sm-2 col-form-label'
   .row
     .col-6
-      = f.search_field :title_cont, class: 'form-control'
+      = f.search_field :title_cont, class: 'form-control', placeholder: '書籍のタイトルを入力してください'
     .col-1
       = f.submit class: 'btn btn-primary'
 
