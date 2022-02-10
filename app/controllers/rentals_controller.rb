@@ -16,6 +16,7 @@ class RentalsController < ApplicationController
     if @rental.save
       redirect_to @book, notice: "書籍「#{@book.title}」をレンタルしました。"
     else
+      @rentals = @book.rentals.order(created_at: :desc)
       render template: 'books/show'
     end
   end
