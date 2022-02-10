@@ -11,7 +11,7 @@ html
   body
     .app-title.navbar.navbar-expand-sm.navbar-dark.bg-dark.mb-5
       .container.px-4
-        .navbar-brand Booksmanager
+        = link_to 'Booksmanager', books_path, class: 'navbar-brand'
         .collapse.navbar-collapse
           ul.navbar-nav.me-auto.mb-2.mb-sm-0
             li.nav-item
