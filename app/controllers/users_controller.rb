@@ -32,8 +32,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update!(user_params)
-    redirect_to users_url, notice: "「#{@user.name}」の登録情報を更新しました。"
+    if @user.update(user_params)
+      redirect_to @user, notice: "「#{@user.name}」の登録情報を更新しました。"
+    else
+      render :edit
+    end
   end
 
   private
