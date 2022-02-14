@@ -13,3 +13,7 @@ table.table.table-hover
           td= link_to user.renting_book.title, book_path(user.renting_book)
         - else
           td
+        - unless user.in_office
+          td.text-danger= '退職済み'
+        - else
+          td
