@@ -11,7 +11,7 @@
   = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
     .row
       .col-6
-        = f.collection_select(:user_id, User.order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control form-control-lg input-sm mb-3'})
+        = f.collection_select(:user_id, User.where(in_office: true).order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control form-control-lg input-sm mb-3'})
       .col-1
         = f.submit '借りる', class: 'btn btn-primary btn-lg mb-3'
 - else
