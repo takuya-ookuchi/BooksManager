@@ -6,7 +6,7 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :title, length: { maximum: 30 }
 
-  has_many :rentals, dependent: :nullify
+  has_many :rentals, dependent: :destroy
 
   def going_rental
     rentals.where(returned_at: nil).first
