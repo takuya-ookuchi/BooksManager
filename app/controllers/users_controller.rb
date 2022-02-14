@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :furigana)
+    params.permit(:name, :furigana, :in_office)
   end
 
   def set_user
