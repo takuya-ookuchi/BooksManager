@@ -20,4 +20,9 @@ table.table.table-hover
         -else
           td= I18n.l(rental.returned_at)
 
-= link_to 'この社員を削除する', @user, method: :delete, data: { confirm: "「#{@user.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger btn-lg col-3 my-5'
+- if @user.in_office
+  = form_with url: user_path(in_office: false), method: :patch do |f|
+    = f.submit '退職', class: 'btn btn-danger btn-lg col-3 my-5'
+- else
+  = form_with url: user_path(in_office: true), method: :patch do |f|
+    = f.submit '復職', class: 'btn btn-success btn-lg col-3 my-5'
