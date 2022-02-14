@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create([{ name: '中島滋', furigana: 'ナカジマシゲル' }, { name: '千葉雄太', furigana: 'チバユウタ' }, { name: '岸恭輔', furigana: 'キシキョウスケ' }, { name: '大口拓哉', furigana: 'オオクチタクヤ' }])
+users_attributes = [{ name: '中島滋', furigana: 'ナカジマシゲル' }, { name: '千葉雄太', furigana: 'チバユウタ' }, { name: '岸恭輔', furigana: 'キシキョウスケ' }, { name: '大口拓哉', furigana: 'オオクチタクヤ' }]
+User.create(users_attributes)
 
-books = Book.create([{ title: '新しいLinuxの教科書' }, { title: 'すっきりわかるSQL入門' }, { title: 'ゼロからわかるRuby超入門' }, { title: 'プロを目指す人のためのRuby入門' }, { title: '現場で使えるRuby on Rails 5速習ガイド' }])
+books_attributes = [{ title: '新しいLinuxの教科書' }, { title: 'すっきりわかるSQL入門' }, { title: 'ゼロからわかるRuby超入門' }, { title: 'プロを目指す人のためのRuby入門' }, { title: '現場で使えるRuby on Rails 5速習ガイド' }]
+Book.create(books_attributes)
