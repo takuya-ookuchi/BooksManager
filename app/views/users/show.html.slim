@@ -2,10 +2,11 @@
   h4.text-danger 退職済み
 
 .clearfix
-  - if @user.in_office
+  - if @user.in_office?
     h1.float-start= @user.name
   - else
     h1.float-start.text-secondary= @user.name
+
   = link_to '編集', edit_user_path(@user), class: 'btn btn-link btn-lg ms-4'
 
 
