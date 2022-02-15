@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update update_in_office destroy]
   def index
     @users = User.all.order(:furigana)
   end
@@ -33,6 +33,14 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      redirect_to @user, notice: "「#{@user.name}」の登録情報を更新しました。"
+    else
+      render :edit
+    end
+  end
+
+  def update_in_office
+    if @user.update(params.permit(:in_office))
       redirect_to @user, notice: "「#{@user.name}」の登録情報を更新しました。"
     else
       render :edit
