@@ -28,7 +28,7 @@ table.table.table-hover
         - else
           td= I18n.l(rental.returned_at)
 
-- if @user.in_office
+- if @user.in_office?
   = form_with url: user_path(in_office: false), method: :patch do |f|
     = f.submit '退職', class: 'btn btn-danger btn-lg col-3 my-5'
 - else
