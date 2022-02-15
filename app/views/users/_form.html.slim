@@ -3,7 +3,7 @@
     - user.errors.full_messages.each do |message|
       li= message
 
-= form_with model: user, local: true do |f|
+= form_with model: user, method: user.persisted? ? :put : :post, local: true do |f|
     .mb-3
       = f.label :name
       .row
