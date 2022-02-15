@@ -1,4 +1,4 @@
-- unless  @user.in_office
+- unless @user.in_office
   h4.text-danger 退職済み
 
 .clearfix
@@ -24,7 +24,7 @@ table.table.table-hover
         td= I18n.l(rental.created_at)
         - if rental.going?
           td= '貸し出し中'
-        -else
+        - else
           td= I18n.l(rental.returned_at)
 
 - if @user.in_office
