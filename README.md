@@ -9,10 +9,10 @@
 
 このアプリをGitHubからcloneしてきたあと、
 ```
-bin/rails db:migrate
+bundle install
 ```
 ```
-bin/rails db:seed
+bin/rails db:setup
 ```
 ```
 bin/rails s
