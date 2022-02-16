@@ -22,6 +22,6 @@ table.table.table-hover
       tr
         td= link_to book.title, book
         - if book.going_rental
-          td= link_to book.going_rental.user.name, user_path(book.going_rental.user)
+          td= link_to book.current_borrower.name, user_path(book.current_borrower)
         - else
           td
