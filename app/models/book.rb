@@ -7,6 +7,7 @@ class Book < ApplicationRecord
   validates :title, length: { maximum: 30 }
 
   has_many :rentals, dependent: :destroy
+  has_one_attached :image
 
   def going_rental
     rentals.where(returned_at: nil).first
