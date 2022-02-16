@@ -13,6 +13,6 @@ class Book < ApplicationRecord
   end
 
   def current_borrower
-    rentals.where(returned_at: nil).first.user
+    going_rental.user
   end
 end
