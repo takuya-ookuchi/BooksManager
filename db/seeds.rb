@@ -9,5 +9,17 @@
 users_attributes = [{ name: '中島滋', furigana: 'ナカジマシゲル' }, { name: '千葉雄太', furigana: 'チバユウタ' }, { name: '岸恭輔', furigana: 'キシキョウスケ' }, { name: '大口拓哉', furigana: 'オオクチタクヤ' }]
 User.create(users_attributes)
 
-books_attributes = [{ title: '新しいLinuxの教科書' }, { title: 'すっきりわかるSQL入門' }, { title: 'ゼロからわかるRuby超入門' }, { title: 'プロを目指す人のためのRuby入門' }, { title: '現場で使えるRuby on Rails 5速習ガイド' }]
-Book.create(books_attributes)
+book1 = Book.create(title: '新しいLinuxの教科書')
+book1.image.attach(io: File.open(Rails.root.join('app/assets/images/book1.jpg')), filename: 'book1.jpg')
+
+book2 = Book.create(title: 'すっきりわかるSQL入門')
+book2.image.attach(io: File.open(Rails.root.join('app/assets/images/book2.jpg')), filename: 'book2.jpg')
+
+book3 = Book.create(title: 'ゼロからわかるRuby超入門')
+book3.image.attach(io: File.open(Rails.root.join('app/assets/images/book3.jpg')), filename: 'book3.jpg')
+
+book4 = Book.create(title: 'プロを目指す人のためのRuby入門')
+book4.image.attach(io: File.open(Rails.root.join('app/assets/images/book4.jpg')), filename: 'book4.jpg')
+
+book5 = Book.create(title: '現場で使えるRuby on Rails 5速習ガイド')
+book5.image.attach(io: File.open(Rails.root.join('app/assets/images/book5.jpg')), filename: 'book5.jpg')
