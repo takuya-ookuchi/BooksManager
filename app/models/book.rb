@@ -21,13 +21,12 @@ class Book < ApplicationRecord
   def validate_image
     return unless image.attached?
     if image.blob.byte_size > 10.megabytes
-      image = nil
+      self.image = nil
       errors.add(:image, 'ファイルのサイズが大きすぎます')
     elsif !image?
-      image = nil
+      self.image = nil
       errors.add(:image, 'ファイルが対応している画像データではありません')
     end
-    image
   end
 
   private
