@@ -24,5 +24,7 @@
               img.img-thumbnail[src="https://placehold.jp/257x364.png?text=book image" alt="書籍の画像（未登録のため代替のプレースホルダー画像）"]
           .col-9
             .card-body
-              h5.card-title= link_to book.title, book_path(book)
+              h5.card-title
+                a.stretched-link[href= book_path(book)]
+                  = book.title
               p.card-text= "#{book.current_borrower.name}さんが借りています" if book.going_rental
