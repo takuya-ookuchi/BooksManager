@@ -15,6 +15,7 @@ ja:
       book:
         id: ID
         title: タイトル
+        image: 画像
       user:
         id: ID
         name: 名前
