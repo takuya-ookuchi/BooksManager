@@ -7,9 +7,9 @@
 .row
   .col-2
     - if @book.image.attached?
-      = image_tag @book.image.variant(resize:'257x364').processed, class: 'img-thumbnail float-start'
+      = image_tag @book.image.variant(resize:'257x364').processed, class: 'img-thumbnail float-start', alt: '書籍の画像'
     - else
-      img.img-thumbnail[src="https://placehold.jp/257x364.png?text=book image" alt="..."]
+      img.img-thumbnail[src="https://placehold.jp/257x364.png?text=book image" alt="書籍の画像（未登録のため代替のプレースホルダー画像）"]
   .col-10
     - if @rental&.errors.present?
       ul#error_explanation.alert.alert-danger [style="list-style: none;"]
