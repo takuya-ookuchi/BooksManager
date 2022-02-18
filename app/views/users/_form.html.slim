@@ -8,9 +8,9 @@
       = f.label :name
       .row
         .col-6
-          = f.text_field :name, class: 'form-control mb-3', id: 'name', placeholder: '社員名を入力してください'
+          = f.text_field :name, class: 'form-control mb-3 shadow-sm', id: 'name', placeholder: '社員名を入力してください'
       = f.label :furigana
       .row
         .col-6
-          = f.text_field :furigana, class: 'form-control', id: 'furigana', placeholder: 'フリガナをカタカナで入力してください'
-    = f.submit nil, class: 'btn btn-primary'
+          = f.text_field :furigana, class: 'form-control shadow-sm', id: 'furigana', placeholder: 'フリガナをカタカナで入力してください'
+    = f.submit nil, class: 'btn btn-primary shadow-sm'
