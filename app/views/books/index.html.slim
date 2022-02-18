@@ -16,12 +16,12 @@
     .col
       .card.mb-3.shadow[style="background: white;" onMouseOut="this.style.background='white';" onMouseOver="this.style.background='whitesmoke'"]
         .row.g-0
-          .col-3[style="height: 140px;"]
+          .col-3.ms-2[style="height: 150px; display: flex; align-items: center;"]
             - if book.image.attached?
               = image_tag book.image.variant(resize:'257x364').processed, class: 'img-thumbnail float-start', alt: '書籍の画像'
             - else
               img.img-thumbnail[src="https://placehold.jp/257x364.png?text=book image" alt="書籍の画像（未登録のため代替のプレースホルダー画像）"]
-          .col-9
+          .col-8
             .card-body [style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;"]
               h5.card-title
                 a.stretched-link[href= book_path(book)]
