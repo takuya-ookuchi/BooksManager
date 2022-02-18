@@ -16,7 +16,7 @@
     .col
       .card.mb-3.shadow[style="background: white;" onMouseOut="this.style.background='white';" onMouseEnter="this.style.background='whitesmoke'"]
         .row.g-0
-          .col-3.ms-2[style="height: 150px; display: flex; align-items: center;"]
+          .col-3.ms-2.d-flex.align-items-center[style="height: 150px;"]
             - if book.image.attached?
               = image_tag book.image.variant(resize:'257x364').processed, class: 'img-thumbnail float-start', alt: '書籍の画像'
             - else
