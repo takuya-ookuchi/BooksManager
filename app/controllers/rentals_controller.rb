@@ -14,7 +14,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
 
     if @rental.save
-      redirect_to @book, notice: "書籍「#{@book.title}」をレンタルしました。"
+      redirect_to @book, notice: "書籍「#{@book.title}」を借りました。"
     else
       @rentals = @book.rentals.order(created_at: :desc)
       render template: 'books/show'
@@ -29,7 +29,7 @@ class RentalsController < ApplicationController
       @rental.update(returned_at: Time.current)
       redirect_to @book, notice: "書籍「#{@book.title}」を返却しました。"
     else
-      redirect_to @book, alert: "書籍「#{@book.title}」をまだレンタルしていないので返却できません"
+      redirect_to @book, alert: "書籍「#{@book.title}」をまだ借りていないので返却できません"
     end
   end
 
