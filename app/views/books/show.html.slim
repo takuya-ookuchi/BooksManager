@@ -7,7 +7,7 @@
 .row
   .col-2
     - if @book.image.attached?
-      = image_tag @book.image.variant(resize:'257x364').processed, class: 'img-thumbnail float-start', alt: '書籍の画像'
+      = image_tag @book.image.variant(resize:'257x364').processed, class: 'img-thumbnail float-start shadow', alt: '書籍の画像'
     - else
       img.img-thumbnail[src="https://placehold.jp/257x364.png?text=book image" alt="書籍の画像（未登録のため代替のプレースホルダー画像）"]
   .col-10
@@ -20,12 +20,12 @@
       = form_with url: rentals_path(book_id: @book.id), method: :post do |f|
         .row
           .col-6
-            = f.collection_select(:user_id, User.where(in_office: true).order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control form-control-lg input-sm mb-3'})
+            = f.collection_select(:user_id, User.where(in_office: true).order(:furigana), :id, :name, {prompt: '借りる人を選択してください'}, {class: 'form-control form-control-lg input-sm mb-3 shadow-sm'})
           .col-1
-            = f.submit '借りる', class: 'btn btn-primary btn-lg mb-3'
+            = f.submit '借りる', class: 'btn btn-primary btn-lg mb-3 shadow-sm'
     - else
       = form_with url: rental_path(book_id: @book.id), method: :patch do |f|
-        = f.submit '返す', class: 'btn btn-success btn-lg mb-3'
+        = f.submit '返す', class: 'btn btn-success btn-lg mb-3 shadow-sm'
 
 h2.mt-3 貸し出し履歴
 
@@ -45,4 +45,4 @@ table.table.table-hover
         -else
           td= I18n.l(rental.returned_at)
 
-= link_to 'この書籍を削除する', @book, method: :delete, data: { confirm: "書籍「#{@book.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger btn-lg col-3 my-5'
+= link_to 'この書籍を削除する', @book, method: :delete, data: { confirm: "書籍「#{@book.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger btn-lg col-3 my-5 shadow-sm'

@@ -7,9 +7,9 @@
   = f.label :title_cont, '書籍検索', class: 'col-sm-2 col-form-label'
   .row
     .col-6
-      = f.search_field :title_cont, class: 'form-control', placeholder: '書籍のタイトルを入力してください'
+      = f.search_field :title_cont, class: 'form-control shadow-sm', placeholder: '書籍のタイトルを入力してください'
     .col-1
-      = f.submit class: 'btn btn-primary'
+      = f.submit class: 'btn btn-primary shadow-sm'
 
 .row.row-cols-2.row-cols-lg-3.g-4
   - @books.each do |book|
