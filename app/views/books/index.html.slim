@@ -14,7 +14,7 @@
 .row.row-cols-2.row-cols-lg-3.g-4
   - @books.each do |book|
     .col
-      .card.mb-3.shadow
+      .card.mb-3.shadow[style="background: white;" onMouseOut="this.style.background='white';" onMouseOver="this.style.background='whitesmoke'"]
         .row.g-0
           .col-3[style="height: 140px;"]
             - if book.image.attached?
