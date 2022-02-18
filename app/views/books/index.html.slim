@@ -18,7 +18,7 @@
         .row.g-0
           .col-3.ms-2.d-flex.align-items-center[style="height: 150px;"]
             - if book.image.attached?
-              = image_tag book.image, class: 'img-thumbnail', alt: '書籍の画像'
+              = image_tag book.image, class: 'img-thumbnail', alt: "書籍#{book.title}の画像"
             - else
               img.img-thumbnail[src="https://placehold.jp/257x364.png?text=book image" alt="書籍の画像（未登録のため代替のプレースホルダー画像）"]
           .col-8
